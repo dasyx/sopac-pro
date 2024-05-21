@@ -2,9 +2,11 @@
 import ThemeIcon from "@components/ThemeIcon.astro";
 import NavLink from "@components/ui/links/NavLink.astro";
 import Authentication from "./Authentication.astro";
-import enStrings from "@utils/navigation.ts";
-const strings = Astro.currentLocale === "fr" ? frStrings : enStrings;
-const homeUrl = Astro.currentLocale === "fr" ? "/fr" : "/";
+import navigation from "@utils/navigation.ts"; // Assurez-vous que le chemin est correct
+
+const { navBarLinks } = navigation;
+
+const homeUrl = "/"; // Suppression de l'utilisation de currentLocale
 ---
 
 <!-- Main header component -->
@@ -80,7 +82,7 @@ const homeUrl = Astro.currentLocale === "fr" ? "/fr" : "/";
         class="mt-5 flex flex-col gap-x-0 gap-y-4 md:mt-0 md:flex-row md:items-center md:justify-end md:gap-x-4 lg:gap-x-7 md:gap-y-0 md:ps-7"
       >
         <!-- Navigation links and Authentication component -->
-        {strings.navBarLinks.map(link => (
+        {navBarLinks.map(link => (
           <NavLink url={link.url} name={link.name} />
         ))}
 
@@ -93,6 +95,10 @@ const homeUrl = Astro.currentLocale === "fr" ? "/fr" : "/";
     </div>
   </nav>
 </header>
+
+
+
+
 
 <!-- Theme Appearance script to manage light/dark modes -->
 <script is:inline>

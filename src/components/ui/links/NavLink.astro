@@ -7,6 +7,11 @@ interface Props {
   url: string;
   name: string;
 }
+
+// Vérifiez que `url` et `name` sont définis
+if (!url || !name) {
+  throw new Error("Les propriétés 'url' et 'name' sont requises pour NavLink.");
+}
 ---
 
 <!--
@@ -50,3 +55,5 @@ If URL is '/' (home page), assign ID as 'home'
     }
   });
 </script>
+
+
