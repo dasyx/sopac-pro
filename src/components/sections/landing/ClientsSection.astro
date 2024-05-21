@@ -1,11 +1,17 @@
 ---
+import { Image } from "astro:assets";
+
 // Define props from Astro
-const { title, subTitle } = Astro.props;
+const { title, subTitle, src1, alt1, src2, alt2 } = Astro.props;
 
 // Define TypeScript interface for props
 interface Props {
   title: string;
   subTitle?: string;
+  src1?: any;
+  alt1?: string;
+  src2?: any;
+  alt2?: string;
 }
 ---
 
@@ -29,29 +35,19 @@ interface Props {
     class="flex flex-col items-center justify-center gap-y-2 sm:flex-row sm:gap-x-12 sm:gap-y-0 lg:gap-x-24"
   >
     <!-- Clients Group Images -->
-    <!-- First -->
-    <img
-      class="mx-auto h-auto w-32 py-3 sm:mx-0 lg:w-40 lg:py-5 filter grayscale"
-      src="/src/assets/images/atlantic-nobg.webp"
-      alt="First Client"
+    {src1 && alt1 &&
+      <Image
+        src={src1}
+        alt={alt1}
+        class="mx-auto h-auto w-32 py-3 sm:mx-0 lg:w-40 lg:py-5 filter grayscale"
+      />
+    }
+    {src2 && alt2 &&
+      <Image
+        src={src2}
+        alt={alt2}
+        class="mx-auto h-auto w-32 py-3 sm:mx-0 lg:w-40 lg:py-5 filter grayscale"
     />
-    <!-- Second -->
-    <img
-      class="mx-auto h-auto w-32 py-3 sm:mx-0 lg:w-40 lg:py-5 filter grayscale"
-      src="/src/assets/images/daikin-nobg.webp"
-      alt="Second Client"
-    />
-    <!-- Third -->
-    <!-- <img
-      class="mx-auto h-auto w-32 py-3 sm:mx-0 lg:w-40 lg:py-5 filter grayscale"
-      src="/src/assets/images/logo_couleur-nobg.png"
-      alt="Third Client"
-    /> -->
-    <!-- Fourth -->
-    <!-- <img
-      class="mx-auto h-auto w-24 py-3 sm:mx-0 md:w-32 lg:w-40 lg:py-5 filter grayscale"
-      src="/src/assets/images/logo_couleur-nobg.png"
-      alt="Fourth Client"
-    /> -->
+    }
   </div>
 </section>
