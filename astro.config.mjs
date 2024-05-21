@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
-import vercelStatic from "@astrojs/vercel/static";
+import vercel from "@astrojs/vercel/serverless";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
 import starlight from "@astrojs/starlight";
@@ -8,7 +8,7 @@ import starlight from "@astrojs/starlight";
 // https://astro.build/config
 export default defineConfig({
   // https://docs.astro.build/en/guides/images/#authorizing-remote-images
-  site: "https://screwfast.uk",
+  site: "http://localhost:4321",
   image: {
     domains: ["images.unsplash.com"],
   },
@@ -111,10 +111,6 @@ export default defineConfig({
       brotli: true,
     }),
   ],
-  output: "static",
-  experimental: {
-    clientPrerender: true,
-    directRenderScript: true,
-  },
-  adapter: vercelStatic(),
+  output: "server",
+  adapter: vercel(),
 });
