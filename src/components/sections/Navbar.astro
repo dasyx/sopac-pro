@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import sopacLogo from "@images/logo_couleur-nobg.png";
 import ThemeIcon from "@components/ThemeIcon.astro";
 import NavLink from "@components/ui/links/NavLink.astro";
 import Authentication from "./Authentication.astro";
@@ -25,7 +27,7 @@ const homeUrl = "/"; // Suppression de l'utilisation de currentLocale
         href={homeUrl}
         aria-label="Brand"
       >
-        <img src="/src/assets/images/logo_couleur-nobg.png" alt="Brand Logo" class="h-auto w-24" />
+        <Image src={sopacLogo} alt="Brand Logo" class="h-auto w-24" />
       </a>
       <!-- Collapse toggle for smaller screens -->
       <div class="ml-auto mr-5 md:hidden">
