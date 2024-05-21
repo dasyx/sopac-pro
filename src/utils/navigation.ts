@@ -1,10 +1,10 @@
-// An array of links for navigation bar
 const navBarLinks = [
   { name: "Accueil", url: "/" },
   { name: "Services", url: "/services" },
   { name: "Réalisations", url: "/products" },
   { name: "Contact", url: "/contact" },
 ];
+
 // An array of links for footer
 const footerLinks = [
   {
@@ -25,11 +25,13 @@ const footerLinks = [
     ],
   },
 ];
+
 // An object of links for social icons
 const socialLinks = {
   facebook: "https://www.facebook.com/",
   x: "https://twitter.com/",
   google: "https://www.google.com/",
+  slack: "https://slack.com/yourworkspace", // Add slack link here
 };
 
 export default {
