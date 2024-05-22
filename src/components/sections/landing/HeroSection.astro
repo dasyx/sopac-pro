@@ -33,8 +33,9 @@ interface Props {
   rating?: string;
   reviews?: string;
   src?: any;
-  alt?: string;
+  alt?: string | null;
 }
+
 ---
 
 <section
@@ -69,15 +70,16 @@ interface Props {
   </div>
   <div class="flex w-full">
       <div class="top-12 overflow-hidden">
-	<Image
+        <Image
         id="hero-image"
         src={src}
-        alt={alt}
+        alt={alt ?? null}
         class="h-full w-full scale-110 object-cover object-center"
         draggable={"false"}
         loading={"eager"}
         format={"webp"}
-	 />
+      />
+      
     </div>
   </div>
 </section>
