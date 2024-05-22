@@ -17,6 +17,7 @@ const {
   rating,
   reviews,
   src,
+  srcDark,
   alt
 } = Astro.props;
 
@@ -34,8 +35,8 @@ interface Props {
   reviews?: string;
   src?: any;
   alt?: string | null;
+  srcDark?: any; // Ajoutez cette ligne
 }
-
 ---
 
 <section
@@ -69,8 +70,8 @@ interface Props {
 
   </div>
   <div class="flex w-full">
-      <div class="top-12 overflow-hidden">
-        <Image
+    <div class="top-12 overflow-hidden">
+      <Image
         id="hero-image"
         src={src}
         alt={alt ?? null}
@@ -79,7 +80,17 @@ interface Props {
         loading={"eager"}
         format={"webp"}
       />
-      
+      {srcDark && (
+        <Image
+          id="hero-image-dark"
+          src={srcDark}
+          alt={alt ?? null}
+          class="h-full w-full scale-110 object-cover object-center dark:block hidden"
+          draggable={"false"}
+          loading={"eager"}
+          format={"webp"}
+        />
+      )}
     </div>
   </div>
 </section>
