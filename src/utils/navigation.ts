@@ -1,7 +1,6 @@
 const navBarLinks = [
   { name: "Accueil", url: "/" },
   { name: "Services", url: "/services" },
-  { name: "Réalisations", url: "/products" },
   { name: "Contact", url: "/contact" },
 ];
 

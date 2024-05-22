@@ -81,16 +81,3 @@ interface Props {
     </div>
   </div>
 </section>
-
-<script>
-  if (typeof window !== 'undefined') {
-    const isDarkMode = localStorage.getItem("theme") === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches);
-    const heroImage = document.getElementById('hero-image');
-    const darkImageSrc = "/src/images/logo_sombre-nobg.webp"; // Replace with actual srcDark path
-    const lightImageSrc = "/src/images/logo_couleur-nobg.webp"; // Replace with actual src path
-
-    if (heroImage) {
-      heroImage.src = isDarkMode ? darkImageSrc : lightImageSrc;
-    }
-  }
-</script>
