@@ -18,6 +18,9 @@ import dashboard from "@images/dashboard-image.avif";
 import sopacLogo from "@images/logo_couleur-nobg.webp";
 import daikinLogo from "@images/daikin-nobg.webp";
 import atlanticLogo from "@images/atlantic-nobg.webp";
+import qualityImage from "@images/quality-image.webp";
+import professionalImage from "@images/professional-image.webp";
+import homeImage from "@images/home-image.webp";
 
 const avatarSrcs: Array<string> = [
   "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
@@ -62,33 +65,33 @@ const avatarSrcs: Array<string> = [
   />
 
   <FeaturesNavs
-    title={`Customize <span class="text-yellow-500 dark:text-yellow-400">ScrewFast</span>'s offerings to perfectly suit your hardware and construction needs.`}
+    title={`Découvrez les atouts de <span class="text-custom-red dark:text-custom-red">So'Pac</span> pour vos besoins en chauffage et climatisation.`}
     tabs={[
       {
-        heading: "Cutting-Edge Tools",
+        heading: "Qualité des matériaux et de la main d'œuvre",
         content:
-          "Empower your projects with ScrewFast's cutting-edge tools. Experience enhanced efficiency in construction management with our sophisticated automated solutions.",
+          "Chez So'Pac, nous utilisons des matériaux de haute qualité et une main d'œuvre experte pour garantir des solutions de chauffage et de climatisation fiables et durables.",
         svg: "tools",
-        src: tools,
-        alt: "Yellow and black heavy equipment on brown grass field",
+        src: qualityImage,
+        alt: "Matériaux de haute qualité utilisés par So'Pac",
         first: true,
       },
       {
-        heading: "Intuitive Dashboards",
+        heading: "Services pour professionnels",
         content:
-          "Navigate with ease using ScrewFast's intuitive dashboards. Set up and oversee your projects seamlessly, with user-friendly interfaces designed for quick and effective workflow management.",
+          "So'Pac offre des solutions personnalisées de chauffage et de climatisation pour les entreprises, avec un service sur mesure pour répondre aux besoins spécifiques des professionnels.",
         svg: "dashboard",
-        src: dashboard,
-        alt: "A screenshot or graphic representation of the intuitive dashboard",
+        src: professionalImage,
+        alt: "Services de chauffage et climatisation pour professionnels",
         second: true,
       },
       {
-        heading: "Robust Features",
+        heading: "Services pour particuliers",
         content:
-          "Minimize complexity, maximize productivity. ScrewFast's robust features are engineered to streamline your construction process, delivering results that stand out for their excellence.",
+          "Nous nous occupons également des particuliers en leur proposant des solutions adaptées pour un confort optimal à domicile, avec un service client dédié et attentif.",
         svg: "house",
-        src: construction,
-        alt: "Gray metal building frame near tower crane during daytime",
+        src: homeImage,
+        alt: "Services de chauffage et climatisation pour particuliers",
       },
     ]}
   />
@@ -139,6 +142,7 @@ const avatarSrcs: Array<string> = [
     url="https://github.com/mearashadowfax/ScrewFast"
   />
 </MainLayout>
+
 
 
 
