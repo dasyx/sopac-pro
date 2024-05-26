@@ -1,29 +1,37 @@
 {
-  "subTitle": "Ask us anything about our brand and products, and get factual responses.",
+  "subTitle": "Posez-nous toutes vos questions sur nos produits et services de pose de pompe à chaleur et de climatisation, et obtenez des réponses précises.",
   "faqs": [
     {
-      "question": "What types of tools are included in the Starter Kit?",
-      "answer": "The Starter Kit features essential hand and power tools for diverse DIY projects, including hammers, drills, screwdrivers, and a variety of fasteners. It's a curated selection to help beginners and experienced DIYers alike tackle most home improvement tasks."
+      "question": "Quels types de pompes à chaleur proposez-vous ?",
+      "answer": "Nous proposons une gamme de pompes à chaleur, incluant les modèles aérothermiques, géothermiques et hydrothermiques, adaptés à différentes configurations de logements et besoins énergétiques."
     },
     {
-      "question": "Can I upgrade from the Starter Kit to the Professional Toolbox?",
-      "answer": "Absolutely! You can upgrade to the Professional Toolbox at any time to access a wider range of high-quality tools, enjoy priority customer support, and receive exclusive content. Contact our support team for a seamless transition."
+      "question": "Comment savoir quelle pompe à chaleur convient le mieux à ma maison ?",
+      "answer": "Nos experts réalisent une évaluation complète de votre logement, prenant en compte la taille, l'isolation et vos besoins en chauffage pour vous recommander la pompe à chaleur la plus adaptée."
     },
     {
-      "question": "What discounts are available for bulk orders through the Professional Toolbox plan?",
-      "answer": "Professional Toolbox members are entitled to exclusive discounts on bulk orders, the percentage of which may vary depending on the order volume. Get in touch with us to discuss your needs, and we'll provide a tailored discount structure."
+      "question": "Quel est le coût moyen d'une installation de pompe à chaleur ?",
+      "answer": "Le coût d'installation d'une pompe à chaleur varie en fonction du type de système, de la taille de votre maison et de la complexité de l'installation. Nous offrons des devis gratuits pour vous donner une estimation précise."
     },
     {
-      "question": "What kind of customer support can I expect?",
-      "answer": "All our customers receive dedicated email support. With the Starter Kit, you'll receive our standard support, while the Professional Toolbox plan upgrades you to priority support, meaning faster response times and specialized assistance."
+      "question": "Combien de temps dure l'installation d'une pompe à chaleur ?",
+      "answer": "L'installation d'une pompe à chaleur prend généralement entre 1 à 3 jours, selon la complexité du projet et les conditions spécifiques de votre maison."
     },
     {
-      "question": "How current are the online resources and tutorials?",
-      "answer": "We regularly update our online resources and tutorials to reflect the latest trends in DIY and construction, as well as introductions to new tools and techniques. Our material aims to be comprehensive and user-friendly for all skill levels."
+      "question": "Quels sont les avantages d'une pompe à chaleur par rapport à un système de chauffage traditionnel ?",
+      "answer": "Les pompes à chaleur sont plus efficaces énergétiquement, réduisent les émissions de CO2 et peuvent offrir des économies significatives sur vos factures d'énergie par rapport aux systèmes de chauffage traditionnels."
     },
     {
-      "question": "Does ScrewFast offer services for large-scale construction projects?",
-      "answer": "Yes, our Enterprise Solutions are designed for larger companies requiring comprehensive services. We provide consultation, planning, and supply of high-grade tools and materials, as well as staffing solutions for substantial construction needs. Contact us for a customized quote."
+      "question": "Proposez-vous des services de maintenance pour les systèmes de climatisation et de pompes à chaleur ?",
+      "answer": "Oui, nous offrons des contrats de maintenance régulière pour garantir le bon fonctionnement et la longévité de vos systèmes de climatisation et de pompe à chaleur."
+    },
+    {
+      "question": "Quels sont les avantages d'une climatisation réversible ?",
+      "answer": "Une climatisation réversible permet non seulement de rafraîchir votre maison en été, mais aussi de la chauffer en hiver, offrant ainsi une solution tout-en-un pour votre confort thermique toute l'année."
+    },
+    {
+      "question": "Quelles sont les incitations fiscales disponibles pour l'installation de pompes à chaleur ?",
+      "answer": "Il existe plusieurs incitations fiscales et subventions pour l'installation de pompes à chaleur, comme le crédit d'impôt pour la transition énergétique (CITE) et les aides de l'Anah. Nos conseillers peuvent vous aider à identifier et à profiter de ces aides."
     }
   ]
 }

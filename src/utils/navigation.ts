@@ -6,21 +6,33 @@ const navBarLinks = [
 
 // An array of links for footer
 const footerLinks = [
-  {
-    section: "Ecosystem",
+  /* {
+    section: "Ecosystème",
     links: [
       { name: "Documentation", url: "/welcome-to-docs/" },
-      { name: "Tools & Equipment", url: "/products" },
-      { name: "Construction Services", url: "/services" },
+      { name: "Outils & Équipements", url: "/products" },
+      { name: "Services de Construction", url: "/services" },
+      { name: "Guides d'Installation", url: "/installation-guides" },
+      { name: "FAQ", url: "/faq" },
     ],
   },
   {
-    section: "Company",
+    section: "Entreprise",
     links: [
-      { name: "About us", url: "#" },
+      { name: "À propos de nous", url: "/about" },
       { name: "Blog", url: "/blog" },
-      { name: "Careers", url: "#" },
-      { name: "Customers", url: "#" },
+      { name: "Carrières", url: "/careers" },
+      { name: "Témoignages", url: "/testimonials" },
+      { name: "Nos Partenaires", url: "/partners" },
+    ],
+  }, */
+  {
+    section: "Support",
+    links: [
+      { name: "Contactez-nous", url: "/contact" },
+      { name: "Support Technique", url: "/technical-support" },
+      { name: "Service Après-Vente", url: "/after-sales-service" },
+      { name: "Garanties", url: "/warranties" },
     ],
   },
 ];
