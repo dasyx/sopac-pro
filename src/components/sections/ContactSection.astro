@@ -76,17 +76,17 @@ const formSubTitle: string = "Nous vous répondrons dans les plus brefs délais.
 
       <!--ContactIconBlocks are used to display different methods of contacting, including visiting office, email, browsing knowledgebase, and FAQ.-->
       <div class="divide-y divide-neutral-300 dark:divide-neutral-700">
-        <ContactIconBlock
+        <!-- <ContactIconBlock
           heading="Glossaire"
-          content="Exploez notre glossaire pour en savoir plus sur les termes techniques."
+          content="Explorez notre glossaire pour en savoir plus sur les termes techniques."
           isLinkVisible={true}
           linkTitle="Accéder au glossaire"
           linkURL="#"
           isArrowVisible={true}
           ><Icon name="question" />
-        </ContactIconBlock>
+        </ContactIconBlock> -->
 
-        <ContactIconBlock
+        <!-- <ContactIconBlock
           heading="FAQ"
           content="Des questions ? Consultez notre FAQ, vous y trouverez peut-être la réponse."
           isLinkVisible={true}
@@ -94,24 +94,29 @@ const formSubTitle: string = "Nous vous répondrons dans les plus brefs délais.
           linkURL="#"
           isArrowVisible={true}
           ><Icon name="chatBubble" />
-        </ContactIconBlock>
+        </ContactIconBlock> -->
 
         <ContactIconBlock
           heading="Où nous trouver ?"
           content="So'Pac"
           isAddressVisible={true}
           addressContent="3 rue des Fines Landes, 76800 Saint Etienne du Rouvray"
+          linkTitle="Voir sur Google Maps"
+          linkURL="https://www.google.com/maps/search/?api=1&query=3+rue+des+Fines+Landes,+76800+Saint+Etienne+du+Rouvray"
           ><Icon name="mapPin" />
         </ContactIconBlock>
 
+
         <ContactIconBlock
-          heading="Adresse email"
-          content="Vous préférez nous écrire ?"
-          isLinkVisible={true}
-          linkTitle="sopac.pro@gmail.com"
-          linkURL="#"
-          ><Icon name="envelopeOpen" />
-        </ContactIconBlock>
+        heading="Adresse email"
+        content="Vous préférez nous écrire ?"
+        isLinkVisible={true}
+        linkTitle="sopac.pro@gmail.com"
+        linkURL="mailto:sopac.pro@gmail.com"
+      >
+        <Icon name="envelopeOpen" />
+      </ContactIconBlock>
+      
       </div>
     </div>
   </div>
