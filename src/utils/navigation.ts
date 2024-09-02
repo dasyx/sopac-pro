@@ -39,10 +39,8 @@ const footerLinks = [
 
 // An object of links for social icons
 const socialLinks = {
-  facebook: "https://www.facebook.com/",
-  x: "https://twitter.com/",
-  google: "https://www.google.com/",
-  slack: "https://slack.com/yourworkspace", // Add slack link here
+  facebook: "https://www.facebook.com/p/SO-PAC-100093944474390/?locale=fr_FR",
+  google: "https://g.page/r/CT7fOTxNf_9FEB0/review",
 };
 
 export default {
