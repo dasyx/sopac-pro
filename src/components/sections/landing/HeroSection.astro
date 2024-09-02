@@ -17,6 +17,7 @@ const {
   rating,
   reviews,
   src,
+  srcMini,
   srcDark,
   alt
 } = Astro.props;
@@ -34,6 +35,7 @@ interface Props {
   rating?: string;
   reviews?: string;
   src?: any;
+  srcMini?: any; // Ajoutez cette ligne
   alt?: string | null;
   srcDark?: any; // Ajoutez cette ligne
 }
@@ -47,6 +49,16 @@ interface Props {
       class="block text-balance text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 sm:text-4xl lg:text-6xl lg:leading-tight"
     >
       <Fragment set:html={title} />
+      <span class="">
+        <Image 
+          src={srcMini} 
+          alt={alt ?? 'Logo Sopac'} 
+          class="inline-block h-14 w-32 -mt-2"
+          width={250} 
+          height={50}
+        />
+      </span>
+      
     </h1>
     {subTitle &&
     <p
@@ -59,9 +71,6 @@ interface Props {
       {primaryBtn && 
       <PrimaryCTA title={primaryBtn} url={primaryBtnURL} />
       }
-      <!-- {secondaryBtn && 
-      <SecondaryCTA title={secondaryBtn} url={secondaryBtnURL} />
-      } -->
     </div>
 
     { withReview ? (
