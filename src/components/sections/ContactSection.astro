@@ -1,5 +1,4 @@
 ---
-// Import the necessary dependencies.
 import AuthBtn from "@components/ui/buttons/AuthBtn.astro";
 import ContactIconBlock from "@components/ui/blocks/ContactIconBlock.astro";
 import TextInput from "@components/ui/forms/input/TextInput.astro";
@@ -8,7 +7,9 @@ import PhoneInput from "@components/ui/forms/input/PhoneInput.astro";
 import TextAreaInput from "@components/ui/forms/input/TextAreaInput.astro";
 import Icon from "@components/ui/icons/Icon.astro";
 
-// Define the variables that will be used in this component
+// Importation des styles de Leaflet
+import 'leaflet/dist/leaflet.css';
+
 const title: string = "Contactez-nous";
 const subTitle: string =
   "Vous avez un projet en tête ? Vous souhaitez en savoir plus sur nos services ? Contactez-nous dès maintenant !";
@@ -16,13 +17,10 @@ const formTitle: string = "Remplissez le formulaire ci-dessous";
 const formSubTitle: string = "Nous vous répondrons dans les plus brefs délais.";
 ---
 
-<!-- Contact Us -->
 <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
   <div class="mx-auto max-w-2xl lg:max-w-5xl">
     <div class="text-center">
-      <h1
-        class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
-      >
+      <h1 class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight">
         {title}
       </h1>
       <p class="mt-1 text-pretty text-neutral-600 dark:text-neutral-400">
@@ -32,34 +30,18 @@ const formSubTitle: string = "Nous vous répondrons dans les plus brefs délais.
 
     <div class="mt-12 grid items-center gap-6 lg:grid-cols-2 lg:gap-16">
       <div class="flex flex-col rounded-xl p-4 sm:p-6 lg:p-8">
-        <h2
-          class="mb-8 text-xl font-bold text-neutral-700 dark:text-neutral-300"
-        >
+        <h2 class="mb-8 text-xl font-bold text-neutral-700 dark:text-neutral-300">
           {formTitle}
         </h2>
-        <!-- Form for user input with various input fields.-->
-        <!-- Each field utilizes a different input component for the specific type of input (text, email, phone, and textarea)-->
         <form>
           <div class="grid gap-4">
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <TextInput
-                id="hs-firstname-contacts"
-                label="Prénom"
-                name="hs-firstname-contacts"
-              />
-              <TextInput
-                id="hs-lastname-contacts"
-                label="Nom"
-                name="hs-firstname-contacts"
-              />
+              <TextInput id="hs-firstname-contacts" label="Prénom" name="hs-firstname-contacts" />
+              <TextInput id="hs-lastname-contacts" label="Nom" name="hs-firstname-contacts" />
             </div>
             <EmailContactInput id="hs-email-contacts" />
             <PhoneInput id="hs-phone-number" />
-            <TextAreaInput
-              id="hs-about-contacts"
-              label="Expliquez-nous votre projet ou vos besoins"
-              name="hs-about-contacts"
-            />
+            <TextAreaInput id="hs-about-contacts" label="Expliquez-nous votre projet ou vos besoins" name="hs-about-contacts" />
           </div>
 
           <div class="mt-4 grid">
@@ -74,59 +56,47 @@ const formSubTitle: string = "Nous vous répondrons dans les plus brefs délais.
         </form>
       </div>
 
-      <!--ContactIconBlocks are used to display different methods of contacting, including visiting office, email, browsing knowledgebase, and FAQ.-->
       <div class="divide-y divide-neutral-300 dark:divide-neutral-700">
-        <!-- <ContactIconBlock
-          heading="Glossaire"
-          content="Explorez notre glossaire pour en savoir plus sur les termes techniques."
-          isLinkVisible={true}
-          linkTitle="Accéder au glossaire"
-          linkURL="#"
-          isArrowVisible={true}
-          ><Icon name="question" />
-        </ContactIconBlock> -->
-
-        <!-- <ContactIconBlock
-          heading="FAQ"
-          content="Des questions ? Consultez notre FAQ, vous y trouverez peut-être la réponse."
-          isLinkVisible={true}
-          linkTitle="Visit FAQ"
-          linkURL="#"
-          isArrowVisible={true}
-          ><Icon name="chatBubble" />
-        </ContactIconBlock> -->
-
         <ContactIconBlock
-        heading="Où nous trouver ?"
-        content="So'Pac"
-        isAddressVisible={true}
-        addressContent="3 rue des Fines Landes, 76800 Saint Etienne du Rouvray"
-      >
-          <div style="margin-top: 16px; border-radius: 8px; overflow: hidden;">
-            <iframe
-              src="https://www.google.fr/maps/embed?pb=!1m18!1m12!1m3!1d2686.507042740591!2d1.0917897153728873!3d49.38344297934443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e0df97a8a7ad03%3A0x8b63bf8b3d9f9b77!2s3%20Rue%20des%20Fines%20Landes%2C%2076800%20Saint-%C3%89tienne-du-Rouvray%2C%20France!5e0!3m2!1sen!2sfr!4v1633023304560!5m2!1sen!2sfr"
-              width="600"
-              height="450"
-              style="border:0; width: 100%; height: 300px;"
-              allowfullscreen=""
-              loading="lazy"
-            ></iframe>
-          </div>
+          heading="Où nous trouver ?"
+          content="So'Pac"
+          isAddressVisible={true}
+          addressContent="3 rue des Fines Landes, 76800 Saint Etienne du Rouvray"
+        >
+          <!-- Ajout de la carte Leaflet -->
+          <div id="map" style="height: 300px; width: 100%; border-radius: 8px; margin-top: 16px;"></div>
         </ContactIconBlock>
 
-
-
         <ContactIconBlock
-        heading="Adresse email"
-        content="Vous préférez nous écrire ?"
-        isLinkVisible={true}
-        linkTitle="sopac.pro@gmail.com"
-        linkURL="mailto:sopac.pro@gmail.com"
-      >
-        <Icon name="envelopeOpen" />
-      </ContactIconBlock>
-      
+          heading="Adresse email"
+          content="Vous préférez nous écrire ?"
+          isLinkVisible={true}
+          linkTitle="sopac.pro@gmail.com"
+          linkURL="mailto:sopac.pro@gmail.com"
+        >
+          <Icon name="envelopeOpen" />
+        </ContactIconBlock>
       </div>
     </div>
   </div>
 </section>
+
+<!-- JavaScript pour initialiser la carte Leaflet -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    import('leaflet').then(L => {
+      const map = L.map('map').setView([49.38344297934443, 1.0917897153728873], 15);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
+      }).addTo(map);
+
+      L.marker([49.38344297934443, 1.0917897153728873]).addTo(map)
+        .bindPopup('So\'Pac, 3 rue des Fines Landes, 76800 Saint Etienne du Rouvray')
+        .openPopup();
+    });
+  });
+</script>
+
+
+
