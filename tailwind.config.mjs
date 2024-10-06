@@ -36,6 +36,9 @@ export default {
       colors: {
         "custom-red": "#C71819",
       },
+      backgroundImage: {
+        "custom-gradient": "linear-gradient(to bottom, #c4dceb, #e6f2f8)",
+      },
     },
   },
   plugins: [

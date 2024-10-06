@@ -21,7 +21,7 @@ interface Props {
 This is the main structure for the page.
 We set the language of the page to English and add classes for scrollbar and scroll behavior.
 -->
-<html lang={lang} class="scrollbar-hide lenis lenis-smooth scroll-pt-16">
+<html lang={lang} class="bg-custom-gradient scrollbar-hide lenis lenis-smooth scroll-pt-16 ">
   <head>
     <!-- Adding metadata to the HTML document -->
     <Meta meta={meta} structuredData={structuredData} />
@@ -42,8 +42,10 @@ We set the language of the page to English and add classes for scrollbar and scr
     </script>
   </head>
   <body
-    class="bg-gradient-to-b from-[#c4dceb] to-[#e6f2f8] selection:bg-red-400 selection:text-white dark:bg-neutral-800"
-  >
+  class="selection:bg-red-400 selection:text-white dark:bg-neutral-800 text-black"
+>
+
+
     <!--
     Setting up the main structure of the page.
     The Navbar is placed at the top, with a slot for the main content and FooterSection at the bottom.
