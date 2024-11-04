@@ -21,21 +21,28 @@ const formSubTitle: string = "Nous vous répondrons dans les plus brefs délais.
 <script is:inline lang="ts">
   // Fonction pour envoyer l'email
   function sendEmail(event) {
-    event.preventDefault(); // Empêcher l'envoi par défaut
+    event.preventDefault(); // Empêche l'envoi par défaut du formulaire
 
-    const formData = new FormData(event.target); // Utilise event.target au lieu de target
+    // Vérifier si l'event.target est bien un formulaire HTML
+    const target = event.target;
+    if (!(target instanceof HTMLFormElement)) {
+      console.error("L'élément target n'est pas un formulaire HTML.");
+      return;
+    }
+
+    const formData = new FormData(target);
     const data = Object.fromEntries(formData.entries());
 
-    console.log(data); // Vérifie que toutes les valeurs sont présentes
+    console.log(data); // Vérifier que toutes les valeurs sont présentes
 
     emailjs
       .send("service_4uo5tlf", "template_kfq76jg", data, "ZtPD1yrf9VMvX9Yyh")
-      .then((response) => {
+      .then((response: any) => {
         console.log("Email envoyé avec succès !", response.status, response.text);
         displayMessage("success", "Votre message a été envoyé avec succès.");
-        event.target.reset(); // Reset le formulaire après succès
+        target.reset(); // Réinitialise le formulaire après succès
       })
-      .catch((error) => {
+      .catch((error: any) => {
         console.error("Échec de l'envoi de l'email :", error);
         displayMessage(
           "error",
@@ -45,7 +52,7 @@ const formSubTitle: string = "Nous vous répondrons dans les plus brefs délais.
   }
 
   // Fonction pour afficher le message de succès ou d'erreur
-  function displayMessage(type, text) {
+  function displayMessage(type: string, text: string) {
     const messageContainer = document.querySelector("#form-message");
     if (messageContainer) {
       messageContainer.textContent = text;
@@ -56,6 +63,9 @@ const formSubTitle: string = "Nous vous répondrons dans les plus brefs délais.
     }
   }
 </script>
+
+
+
 
 
 
