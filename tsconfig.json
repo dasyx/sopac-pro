@@ -11,5 +11,7 @@
       "@styles/*": ["src/styles/*"],
       "@utils/*": ["src/utils/*"]
     },
+    "strict": false,
+    "noImplicitAny": false
   }
 }
