@@ -1,5 +1,5 @@
 ---
-// Import the necessary dependencies.
+// Import des dépendances nécessaires.
 import AuthBtn from "@components/ui/buttons/AuthBtn.astro";
 import ContactIconBlock from "@components/ui/blocks/ContactIconBlock.astro";
 import TextInput from "@components/ui/forms/input/TextInput.astro";
@@ -8,21 +8,51 @@ import PhoneInput from "@components/ui/forms/input/PhoneInput.astro";
 import TextAreaInput from "@components/ui/forms/input/TextAreaInput.astro";
 import Icon from "@components/ui/icons/Icon.astro";
 
-// Define the variables that will be used in this component
+// Utilisation du package EmailJS intégré pour gérer l'envoi des emails
+import emailjs from "@emailjs/browser";
+
 const title: string = "Contactez-nous";
-const subTitle: string =
-  "Vous avez un projet en tête ? Vous souhaitez en savoir plus sur nos services ? Contactez-nous dès maintenant !";
+const subTitle: string = "Vous avez un projet en tête ? Vous souhaitez en savoir plus sur nos services ? Contactez-nous dès maintenant !";
 const formTitle: string = "Remplissez le formulaire ci-dessous";
 const formSubTitle: string = "Nous vous répondrons dans les plus brefs délais.";
 ---
+
+<script is:inline>
+  // Fonction pour envoyer l'email
+  function sendEmail(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData);
+    console.log(data); // Vérifie ici que toutes les valeurs sont présentes
+
+    emailjs.send("service_4uo5tlf", "template_kfq76jg", data, "ZtPD1yrf9VMvX9Yyh")
+      .then((response) => {
+        console.log("Email envoyé avec succès !", response.status, response.text);
+        displayMessage('success', 'Votre message a été envoyé avec succès.');
+        event.target.reset();
+      })
+      .catch((error) => {
+        console.error("Échec de l'envoi de l'email :", error);
+        displayMessage('error', 'Une erreur s\'est produite lors de l\'envoi de votre message. Veuillez réessayer.');
+      });
+  }
+
+  // Fonction pour afficher le message de succès ou d'erreur
+  function displayMessage(type, text) {
+    const messageContainer = document.querySelector('#form-message');
+    if (messageContainer) {
+      messageContainer.textContent = text;
+      messageContainer.className = type === 'success' ? 'bg-green-100 text-green-700 p-3 mt-4' : 'bg-red-100 text-red-700 p-3 mt-4';
+    }
+  }
+</script>
 
 <!-- Contact Us -->
 <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
   <div class="mx-auto max-w-2xl lg:max-w-5xl">
     <div class="text-center">
-      <h1
-        class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
-      >
+      <h1 class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight">
         {title}
       </h1>
       <p class="mt-1 text-pretty text-neutral-600 dark:text-neutral-400">
@@ -32,39 +62,40 @@ const formSubTitle: string = "Nous vous répondrons dans les plus brefs délais.
 
     <div class="mt-12 grid items-center gap-6 lg:grid-cols-2 lg:gap-16">
       <div class="flex flex-col rounded-xl p-4 sm:p-6 lg:p-8">
-        <h2
-          class="mb-8 text-xl font-bold text-neutral-700 dark:text-neutral-300"
-        >
+        <h2 class="mb-8 text-xl font-bold text-neutral-700 dark:text-neutral-300">
           {formTitle}
         </h2>
-        <!-- Form for user input with various input fields.-->
-        <!-- Each field utilizes a different input component for the specific type of input (text, email, phone, and textarea)-->
-        <form>
+        
+        <!-- Formulaire de contact -->
+        <form onsubmit="sendEmail(event)">
           <div class="grid gap-4">
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <TextInput
                 id="hs-firstname-contacts"
                 label="Prénom"
-                name="hs-firstname-contacts"
+                name="firstname"
               />
               <TextInput
                 id="hs-lastname-contacts"
                 label="Nom"
-                name="hs-firstname-contacts"
+                name="lastname"
               />
             </div>
-            <EmailContactInput id="hs-email-contacts" />
-            <PhoneInput id="hs-phone-number" />
+            <EmailContactInput id="hs-email-contacts" name="email" />
+            <PhoneInput id="hs-phone-number" name="phone" />
             <TextAreaInput
               id="hs-about-contacts"
               label="Expliquez-nous votre projet ou vos besoins"
-              name="hs-about-contacts"
+              name="message"
             />
           </div>
 
           <div class="mt-4 grid">
             <AuthBtn title="Envoyer" />
           </div>
+
+          <!-- Conteneur pour les messages de succès ou d'erreur -->
+          <div id="form-message" class="text-center mt-4"></div>
 
           <div class="mt-3 text-center">
             <p class="text-sm text-neutral-600 dark:text-neutral-400">
@@ -74,16 +105,15 @@ const formSubTitle: string = "Nous vous répondrons dans les plus brefs délais.
         </form>
       </div>
 
-      <!--ContactIconBlocks are used to display different methods of contacting, including visiting office, email, browsing knowledgebase, and FAQ.-->
+      <!-- Autres informations de contact -->
       <div class="divide-y divide-neutral-300 dark:divide-neutral-700">
-
         <ContactIconBlock
-        heading="Où nous trouver ?"
-        content="So'Pac"
-        number="Tel. 0645605064"
-        isAddressVisible={true}
-        addressContent="3 rue des Fines Landes, 76800 Saint Etienne du Rouvray"
-      >
+          heading="Où nous trouver ?"
+          content="So'Pac"
+          number="Tel. 0645605064"
+          isAddressVisible={true}
+          addressContent="3 rue des Fines Landes, 76800 Saint Etienne du Rouvray"
+        >
           <div style="margin-top: 16px; border-radius: 8px; overflow: hidden;">
             <iframe
               src="https://www.google.fr/maps/embed?pb=!1m18!1m12!1m3!1d2686.507042740591!2d1.0917897153728873!3d49.38344297934443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e0df97a8a7ad03%3A0x8b63bf8b3d9f9b77!2s3%20Rue%20des%20Fines%20Landes%2C%2076800%20Saint-%C3%89tienne-du-Rouvray%2C%20France!5e0!3m2!1sen!2sfr!4v1633023304560!5m2!1sen!2sfr"
@@ -96,19 +126,20 @@ const formSubTitle: string = "Nous vous répondrons dans les plus brefs délais.
           </div>
         </ContactIconBlock>
 
-
-
         <ContactIconBlock
-        heading="Adresse email"
-        content="Vous préférez nous écrire ?"
-        isLinkVisible={true}
-        linkTitle="sopac.pro@gmail.com"
-        linkURL="mailto:sopac.pro@gmail.com"
-      >
-        <Icon name="envelopeOpen" />
-      </ContactIconBlock>
-      
+          heading="Adresse email"
+          content="Vous préférez nous écrire ?"
+          isLinkVisible={true}
+          linkTitle="sopac.pro@gmail.com"
+          linkURL="mailto:sopac.pro@gmail.com"
+        >
+          <Icon name="envelopeOpen" />
+        </ContactIconBlock>
       </div>
     </div>
   </div>
 </section>
+
+
+
+
