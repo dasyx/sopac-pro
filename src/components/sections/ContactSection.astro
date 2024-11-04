@@ -17,33 +17,47 @@ const formTitle: string = "Remplissez le formulaire ci-dessous";
 const formSubTitle: string = "Nous vous répondrons dans les plus brefs délais.";
 ---
 
-<script lang="ts">
+<script is:inline lang="ts">
   // Fonction pour envoyer l'email
-  function sendEmail(event) {
+  function sendEmail(event: Event) {
     event.preventDefault();
 
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData);
+    const target = event.target as HTMLFormElement | null;
+    if (!target) {
+      console.error("Erreur : Le formulaire cible n'existe pas.");
+      return;
+    }
+
+    const formData = new FormData(target);
+    const data = Object.fromEntries(formData.entries());
+
     console.log(data); // Vérifie ici que toutes les valeurs sont présentes
 
-    emailjs.send("service_4uo5tlf", "template_kfq76jg", data, "ZtPD1yrf9VMvX9Yyh")
+    emailjs
+      .send("service_4uo5tlf", "template_kfq76jg", data, "ZtPD1yrf9VMvX9Yyh")
       .then((response) => {
         console.log("Email envoyé avec succès !", response.status, response.text);
-        displayMessage('success', 'Votre message a été envoyé avec succès.');
-        event.target.reset();
+        displayMessage("success", "Votre message a été envoyé avec succès.");
+        target.reset(); // Reset le formulaire après succès
       })
       .catch((error) => {
         console.error("Échec de l'envoi de l'email :", error);
-        displayMessage('error', 'Une erreur s\'est produite lors de l\'envoi de votre message. Veuillez réessayer.');
+        displayMessage(
+          "error",
+          "Une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer."
+        );
       });
   }
 
   // Fonction pour afficher le message de succès ou d'erreur
-  function displayMessage(type, text) {
-    const messageContainer = document.querySelector('#form-message');
+  function displayMessage(type: string, text: string) {
+    const messageContainer = document.querySelector("#form-message");
     if (messageContainer) {
       messageContainer.textContent = text;
-      messageContainer.className = type === 'success' ? 'bg-green-100 text-green-700 p-3 mt-4' : 'bg-red-100 text-red-700 p-3 mt-4';
+      messageContainer.className =
+        type === "success"
+          ? "bg-green-100 text-green-700 p-3 mt-4"
+          : "bg-red-100 text-red-700 p-3 mt-4";
     }
   }
 </script>
@@ -139,6 +153,7 @@ const formSubTitle: string = "Nous vous répondrons dans les plus brefs délais.
     </div>
   </div>
 </section>
+
 
 
 
