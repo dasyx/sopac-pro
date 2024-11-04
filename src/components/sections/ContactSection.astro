@@ -19,7 +19,7 @@ const formSubTitle: string = "Nous vous répondrons dans les plus brefs délais.
 
 <script is:inline>
   // Fonction pour envoyer l'email
-  function sendEmail(event) {
+  function sendEmail(event: Event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
@@ -39,7 +39,7 @@ const formSubTitle: string = "Nous vous répondrons dans les plus brefs délais.
   }
 
   // Fonction pour afficher le message de succès ou d'erreur
-  function displayMessage(type, text) {
+  function displayMessage(type: string, text: string) {
     const messageContainer = document.querySelector('#form-message');
     if (messageContainer) {
       messageContainer.textContent = text;
