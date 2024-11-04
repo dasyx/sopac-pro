@@ -18,12 +18,12 @@ const formSubTitle: string = "Nous vous répondrons dans les plus brefs délais.
 
 ---
 
-<script is:inline lang="ts">
+<script is:inline>
   // Fonction pour envoyer l'email
   function sendEmail(event) {
     event.preventDefault(); // Empêche l'envoi par défaut du formulaire
 
-    // Vérifier si l'event.target est bien un formulaire HTML
+    // Vérifier si l'event.target est bien un formulaire
     const target = event.target;
     if (!(target instanceof HTMLFormElement)) {
       console.error("L'élément target n'est pas un formulaire HTML.");
@@ -37,12 +37,12 @@ const formSubTitle: string = "Nous vous répondrons dans les plus brefs délais.
 
     emailjs
       .send("service_4uo5tlf", "template_kfq76jg", data, "ZtPD1yrf9VMvX9Yyh")
-      .then((response: any) => {
+      .then(function(response) {
         console.log("Email envoyé avec succès !", response.status, response.text);
         displayMessage("success", "Votre message a été envoyé avec succès.");
         target.reset(); // Réinitialise le formulaire après succès
       })
-      .catch((error: any) => {
+      .catch(function(error) {
         console.error("Échec de l'envoi de l'email :", error);
         displayMessage(
           "error",
@@ -52,7 +52,7 @@ const formSubTitle: string = "Nous vous répondrons dans les plus brefs délais.
   }
 
   // Fonction pour afficher le message de succès ou d'erreur
-  function displayMessage(type: string, text: string) {
+  function displayMessage(type, text) {
     const messageContainer = document.querySelector("#form-message");
     if (messageContainer) {
       messageContainer.textContent = text;
